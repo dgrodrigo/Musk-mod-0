@@ -1,4 +1,5 @@
 #ejemplo del commit
+import random
 # APARTADO 1:
 # 1. Establece una profundidad inicial de 0 metros y una profundidad máxima de la
 # fosa de 1500 metros.
@@ -75,7 +76,19 @@ while energia > 0:
         print("Opción no válida.")
         continue  # vuelve al inicio del bucle
     if energia < costo:
-        print("🔋 Energía insuficiente para esta acción. Elija otra.")
+        print("🔋 Energía insuficiente para esta acción.")
+        print("🧠 Para recargar energía, resuelve la siguiente suma:")
+
+        a = random.randint(1, 20)
+        b = random.randint(1, 20)
+        respuesta = int(input(f"{a} + {b} = "))
+
+        if respuesta == a + b:
+            energia += 25
+            print("✅ Correcto. Energía recargada (+25).")
+            print(f"Energía actual: {energia}")
+        else:
+            print("❌ Respuesta incorrecta. No se recarga energía.")
     else:
         energia -= costo
         print(f"Acción realizada. Energía restante: {energia}")
